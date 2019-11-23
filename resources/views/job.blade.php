@@ -1,7 +1,7 @@
 @extends('layout.asset-app')
 @section('content')
 
-    <main id="js-page-content" role="main" class="page-content">
+ <main id="js-page-content" role="main" class="page-content">
         <ol class="breadcrumb page-breadcrumb">
             <li class="breadcrumb-item"><a href="javascript:void(0);">DIU Community</a></li>
             <li class="breadcrumb-item active">DIU Community</li>
@@ -9,7 +9,7 @@
         </ol>
         <div class="subheader">
             <h1 class="subheader-title">
-                <i class='subheader-icon fal fa-globe'></i>DIU Adda Community
+                <i class='subheader-icon fal fa-globe'></i>DIU Job Community
             </h1>
         </div>
         <div class="row">

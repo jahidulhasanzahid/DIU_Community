@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
         <title>
-            Marketing Dashboard - Application Intel - SmartAdmin v4.0.2
+           DIU Community
         </title>
         <meta name="description" content="Marketing Dashboard">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,6 +20,7 @@
         <link rel="icon" type="image/png" sizes="32x32" href="{{asset('frontend/img/favicon/favicon-32x32.png')}}">
         <link rel="mask-icon" href="{{asset('frontend/img/favicon/safari-pinned-tab.svg')}}" color="#5bbad5">
         <link rel="stylesheet" media="screen, print" href="{{asset('frontend/css/datagrid/datatables/datatables.bundle.css')}}">
+        
 </head>
 <body class="mod-bg-1 ">
     <!-- DOC: script to save and load page settings -->
@@ -89,7 +90,7 @@
                 <!-- BEGIN Left Aside -->
                 <aside class="page-sidebar">
                     <div class="page-logo">
-                        <a href="#" class="page-logo-link press-scale-down d-flex align-items-center position-relative" data-toggle="modal" data-target="#modal-shortcut">
+                        <a href="{{ url('/') }}" class="page-logo-link press-scale-down d-flex align-items-center position-relative" data-toggle="modal" data-target="#modal-shortcut">
                             <img src="{{asset('frontend/img/logo.png')}}" alt="SmartAdmin WebApp" aria-roledescription="logo">
                             <span class="page-logo-text mr-1">DIU Community</span>
                             <span class="position-absolute text-white opacity-50 small pos-top pos-right mr-2 mt-n2"></span>
@@ -97,70 +98,7 @@
                         </a>
                     </div>
                     <!-- BEGIN PRIMARY NAVIGATION -->
-                    <nav id="js-primary-nav" class="primary-nav" role="navigation">
-                        <div class="nav-filter">
-                            <div class="position-relative">
-                                <input type="text" id="nav_filter_input" placeholder="Filter menu" class="form-control" tabindex="0">
-                                <a href="#" onclick="return false;" class="btn-primary btn-search-close js-waves-off" data-action="toggle" data-class="list-filter-active" data-target=".page-sidebar">
-                                    <i class="fal fa-chevron-up"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="info-card">
-                            <img src="{{asset('frontend/img/demo/avatars/avatar-admin.png')}}" class="profile-image rounded-circle" alt="Dr. Codex Lantern">
-                            <div class="info-card-text">
-                                <a href="#" class="d-flex align-items-center text-white">
-                                    <span class="text-truncate text-truncate-sm d-inline-block">
-                                        Legend Saidi
-                                    </span>
-                                </a>
-                                <span class="d-inline-block text-truncate text-truncate-sm">উত্তরবঙ্গ, মঙ্গলগ্রহ </span>
-                            </div>
-                            <img src="{{asset('frontend/img/card-backgrounds/cover-2-lg.png')}}" class="cover" alt="cover">
-                            <a href="#" onclick="return false;" class="pull-trigger-btn" data-action="toggle" data-class="list-filter-active" data-target=".page-sidebar" data-focus="nav_filter_input">
-                                <i class="fal fa-angle-down"></i>
-                            </a>
-                        </div>
-
-                        <ul id="js-nav-menu" class="nav-menu">
-                            <li class="active open">
-                                <a href="#" title="Application Intel" data-filter-tags="application intel">
-                                    <i class="fal fa-info-circle"></i>
-                                    <span class="nav-link-text" data-i18n="nav.application_intel">Application Intel</span>
-                                </a>
-                                <ul>
-                                    <li>
-                                        <a href="intel_analytics_dashboard.html" title="Analytics Dashboard" data-filter-tags="application intel analytics dashboard">
-                                            <span class="nav-link-text" data-i18n="nav.application_intel_analytics_dashboard">Analytics Dashboard</span>
-                                        </a>
-                                    </li>
-                                    <li class="active">
-                                        <a href="intel_marketing_dashboard.html" title="Marketing Dashboard" data-filter-tags="application intel marketing dashboard">
-                                            <span class="nav-link-text" data-i18n="nav.application_intel_marketing_dashboard">Marketing Dashboard</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="intel_introduction.html" title="Introduction" data-filter-tags="application intel introduction">
-                                            <span class="nav-link-text" data-i18n="nav.application_intel_introduction">Introduction</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="intel_privacy.html" title="Privacy" data-filter-tags="application intel privacy">
-                                            <span class="nav-link-text" data-i18n="nav.application_intel_privacy">Privacy</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="intel_build_notes.html" title="Build Notes" data-filter-tags="application intel build notes">
-                                            <span class="nav-link-text" data-i18n="nav.application_intel_build_notes">Build Notes</span>
-                                            <span class="">v4.0.2</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-title">Tools & Components</li>
-                        </ul>
-                        <div class="filter-message js-filter-message bg-success-600"></div>
-                    </nav>
+                    @include('layout.nav')
                     <!-- END PRIMARY NAVIGATION -->
                     <!-- NAV FOOTER -->
                     <div class="nav-footer shadow-top">
@@ -190,97 +128,11 @@
                 <!-- END Left Aside -->
                 <div class="page-content-wrapper">
                     <!-- BEGIN Page Header -->
-                    <header class="page-header" role="banner">
-                        <!-- we need this logo when user switches to nav-function-top -->
-                        <div class="page-logo">
-                            <a href="#" class="page-logo-link press-scale-down d-flex align-items-center position-relative" data-toggle="modal" data-target="#modal-shortcut">
-                                <img src="{{asset('frontend/img/logo.png')}}" alt="SmartAdmin WebApp" aria-roledescription="logo">
-                                <span class="page-logo-text mr-1">DIUC</span>
-                                <span class="position-absolute text-white opacity-50 small pos-top pos-right mr-2 mt-n2"></span>
-                                <i class="fal fa-angle-down d-inline-block ml-1 fs-lg color-primary-300"></i>
-                            </a>
-                        </div>
-                        <!-- DOC: nav menu layout change shortcut -->
-                        <div class="hidden-md-down dropdown-icon-menu position-relative">
-                            <a href="#" class="header-btn btn js-waves-off" data-action="toggle" data-class="nav-function-hidden" title="Hide Navigation">
-                                <i class="ni ni-menu"></i>
-                            </a>
-                            <ul>
-                                <li>
-                                    <a href="#" class="btn js-waves-off" data-action="toggle" data-class="nav-function-minify" title="Minify Navigation">
-                                        <i class="ni ni-minify-nav"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="btn js-waves-off" data-action="toggle" data-class="nav-function-fixed" title="Lock Navigation">
-                                        <i class="ni ni-lock-nav"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- DOC: mobile button appears during mobile width -->
-                        <div class="hidden-lg-up">
-                            <a href="#" class="header-btn btn press-scale-down" data-action="toggle" data-class="mobile-nav-on">
-                                <i class="ni ni-menu"></i>
-                            </a>
-                        </div>
-                        <div class="search">
-                            <form class="app-forms hidden-xs-down" role="search" action="https://www.gotbootstrap.com/themes/smartadmin/4.0.2/page_search.html" autocomplete="off">
-                                <input type="text" id="search-field" placeholder="Search for anything" class="form-control" tabindex="1">
-                                <a href="#" onclick="return false;" class="btn-danger btn-search-close js-waves-off d-none" data-action="toggle" data-class="mobile-search-on">
-                                    <i class="fal fa-times"></i>
-                                </a>
-                            </form>
-                        </div>
-                        <div class="ml-auto d-flex">
-                            <!-- activate app search icon (mobile) -->
-                            <div class="hidden-sm-up">
-                                <a href="#" class="header-icon" data-action="toggle" data-class="mobile-search-on" data-focus="search-field" title="Search">
-                                    <i class="fal fa-search"></i>
-                                </a>
-                            </div>
-
-                            <!-- app user menu -->
-                            <div>
-                                <a href="#" data-toggle="dropdown" title="drlantern@gotbootstrap.com" class="header-icon d-flex align-items-center justify-content-center ml-2">
-                                    <img src="{{asset('frontend/img/demo/avatars/avatar-admin.png')}}" class="profile-image rounded-circle" alt="Dr. Codex Lantern">
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-animated dropdown-lg">
-                                    <div class="dropdown-header bg-trans-gradient d-flex flex-row py-4 rounded-top">
-                                        <div class="d-flex flex-row align-items-center mt-1 mb-1 color-white">
-                                            <span class="mr-2">
-                                                <img src="{{asset('frontend/img/demo/avatars/avatar-admin.png')}}" class="rounded-circle profile-image" alt="Dr. Codex Lantern">
-                                            </span>
-                                            <div class="info-card-text">
-                                                <div class="fs-lg text-truncate text-truncate-lg">Legend SAidi</div>
-                                                <span class="text-truncate text-truncate-md opacity-80">saidi@legend.com</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="dropdown-divider m-0"></div>
-
-                                    <div class="dropdown-divider m-0"></div>
-                                    <a href="#" class="dropdown-item" data-action="app-fullscreen">
-                                        <span data-i18n="drpdwn.fullscreen">Fullscreen</span>
-                                        <i class="float-right text-muted fw-n">F11</i>
-                                    </a>
-                                    <a href="#" class="dropdown-item" data-action="app-print">
-                                        <span data-i18n="drpdwn.print">Print</span>
-                                        <i class="float-right text-muted fw-n">Ctrl + P</i>
-                                    </a>
-                                    <div class="dropdown-divider m-0"></div>
-                                    <a class="dropdown-item fw-500 pt-3 pb-3" href="page_login_alt.html">
-                                        <span data-i18n="drpdwn.page-logout">Logout</span>
-                                        <span class="float-right fw-n">&commat;Legend Saidi</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </header>
+                    @include('layout.header')
 
 
 
-             @yield('content')
+                    @yield('content')
 
 
 
@@ -308,7 +160,7 @@
                                 <div class="modal-body">
                                     <ul class="app-list w-auto h-auto p-0 text-left">
                                         <li>
-                                            <a href="intel_introduction.html" class="app-list-item text-white border-0 m-0">
+                                            <a href="{{ url('/') }}" class="app-list-item text-white border-0 m-0">
                                                 <div class="icon-stack">
                                                     <i class="base base-7 icon-stack-3x opacity-100 color-primary-500 "></i>
                                                     <i class="base base-7 icon-stack-2x opacity-100 color-primary-300 "></i>
@@ -320,25 +172,14 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="page_inbox_general.html" class="app-list-item text-white border-0 m-0">
+                                            <a href="{{ url('/profile') }}" class="app-list-item text-white border-0 m-0">
                                                 <div class="icon-stack">
                                                     <i class="base base-7 icon-stack-3x opacity-100 color-success-500 "></i>
                                                     <i class="base base-7 icon-stack-2x opacity-100 color-success-300 "></i>
-                                                    <i class="ni ni-envelope icon-stack-1x text-white"></i>
+                                                    <i class="ni ni-home icon-stack-1x text-white"></i>
                                                 </div>
                                                 <span class="app-list-name">
-                                                    Inbox
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="intel_introduction.html" class="app-list-item text-white border-0 m-0">
-                                                <div class="icon-stack">
-                                                    <i class="base base-7 icon-stack-2x opacity-100 color-primary-300 "></i>
-                                                    <i class="fal fa-plus icon-stack-1x opacity-100 color-white"></i>
-                                                </div>
-                                                <span class="app-list-name">
-                                                    Add More
+                                                    Profile
                                                 </span>
                                             </a>
                                         </li>
