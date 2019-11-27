@@ -11,10 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+Route::get('/','HomeController@index')->name('welcome');
 Route::get('/profile','profileController@profile')->name('profile');
 Route::get('/profile/edit','profileController@profileEdit')->name('profile.edit');
 
@@ -22,3 +20,6 @@ Route::get('/messages','messageController@message')->name('message');
 Route::get('/events','eventController@events')->name('events');
 Route::get('/jobs','jobController@jobs')->name('jobs');
 Route::get('/bloods','bloodController@bloods')->name('bloods');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

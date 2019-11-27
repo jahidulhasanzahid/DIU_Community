@@ -60,8 +60,8 @@
                                                 <img src="{{asset('frontend/img/demo/avatars/avatar-admin.png')}}" class="rounded-circle profile-image" alt="Dr. Codex Lantern">
                                             </span>
                                             <div class="info-card-text">
-                                                <div class="fs-lg text-truncate text-truncate-lg">Legend SAidi</div>
-                                                <span class="text-truncate text-truncate-md opacity-80">saidi@legend.com</span>
+                                                <div class="fs-lg text-truncate text-truncate-lg">{{ Auth::user()->name}}</div>
+                                                <span class="text-truncate text-truncate-md opacity-80">{{ Auth::user()->email }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -77,10 +77,17 @@
                                         <i class="float-right text-muted fw-n">Ctrl + P</i>
                                     </a>
                                     <div class="dropdown-divider m-0"></div>
-                                    <a class="dropdown-item fw-500 pt-3 pb-3" href="page_login_alt.html">
-                                        <span data-i18n="drpdwn.page-logout">Logout</span>
-                                        <span class="float-right fw-n">&commat;Legend Saidi</span>
+                                    <a style="color: red;" class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
                                     </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                    </a>
+
                                 </div>
                             </div>
                         </div>

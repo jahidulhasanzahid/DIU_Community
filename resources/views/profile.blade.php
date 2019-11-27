@@ -18,7 +18,7 @@
                             <div class="d-flex flex-column align-items-center justify-content-center p-4">
                                 <img src="{{asset('frontend/img/demo/avatars/avatar-admin-lg.png')}}" class="rounded-circle shadow-2 img-thumbnail" alt="">
                                 <h5 class="mb-0 fw-700 text-center mt-3">
-                                   Legend Saidi
+                                   {{Auth::user()->name}}
                                     <small class="text-muted mb-0">Dhaka, Bangladesh</small>
                                     <small>Daffodil International University, Department of Software Engeering.</small>
                                     <b> Blood Group: O+ "available"</b> <br> <BR>
@@ -76,7 +76,7 @@
                         <div class="col-12">
                             <div class="p-3">
                                 <h2 class="mb-0 fs-xl">
-                                    Legend Saidi
+                                   {{Auth::user()->name}}
                                 </h2>
                             </div>
                         </div>

@@ -12,7 +12,7 @@
                             <div class="info-card-text">
                                 <a href="{{ url('/profile') }}" class="d-flex align-items-center text-white">
                                     <span class="text-truncate text-truncate-sm d-inline-block">
-                                        Legend Saidi
+                                        {{Auth::user()->name}}
                                     </span>
                                 </a>
                                 <span class="d-inline-block text-truncate text-truncate-sm">উত্তরবঙ্গ, মঙ্গলগ্রহ </span>
