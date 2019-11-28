@@ -15,6 +15,7 @@
 Route::get('/','HomeController@index')->name('welcome');
 Route::get('/profile','profileController@profile')->name('profile');
 Route::get('/profile/edit','profileController@profileEdit')->name('profile.edit');
+Route::post('/profile-update','profileController@profileUpdate')->name('profileUpdate');
 
 Route::get('/messages','messageController@message')->name('message');
 Route::get('/events','eventController@events')->name('events');
@@ -23,3 +24,4 @@ Route::get('/bloods','bloodController@bloods')->name('bloods');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+

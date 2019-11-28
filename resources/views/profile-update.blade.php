@@ -18,18 +18,11 @@
                                 <div id="panel-1" class="panel">
                                     <div class="panel-container show">
                                         <div class="panel-content">
-                                            <form>
-                                                <div class="form-group">
-                                                    <label class="form-label" for="simpleinput">Full Name</label>
-                                                    <input type="text" id="simpleinput" class="form-control">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="form-label" for="example-email-2">Email</label>
-                                                    <input type="email" id="example-email-2" name="example-email-2" class="form-control" placeholder="Email">
-                                                </div>
+                                            <form action="{{ url('/profile-update') }}" method="post" enctype="multipart/form-data">
+                                                @csrf
                                                 <div class="form-group">
                                                     <label class="form-label" for="example-select">Select Status</label>
-                                                    <select class="form-control" id="example-select">
+                                                    <select class="form-control" id="example-select" name="type">
                                                         <option>Select</option>
                                                         <option value="teacher">Teacher</option>
                                                         <option value="student">Student</option>
@@ -37,11 +30,11 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="form-label" for="simpleinput">Student/Teacher ID</label>
-                                                    <input type="text" id="simpleinput" class="form-control">
+                                                    <input type="text" id="simpleinput" class="form-control" name="SRid">
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="form-label" for="example-select">Select Department</label>
-                                                    <select class="form-control" id="example-select">
+                                                    <select class="form-control" id="example-select" name="department">
                                                         <option>Select</option>
                                                         <option value="DEPARTMENT OF COMPUTER SCIENCE & ENGINEERING">DEPARTMENT OF COMPUTER SCIENCE & ENGINEERING</option>
                                                         <option value="DEPARTMENT OF SOFTWARE ENGINEERING">DEPARTMENT OF SOFTWARE ENGINEERING</option>
@@ -58,11 +51,34 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="form-label" for="simpleinput">Batch (if you are a student)</label>
-                                                    <input type="text" id="simpleinput" class="form-control">
+                                                    <input type="text" id="simpleinput" class="form-control" name="batch">
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    <label class="form-label" for="example-datetime-local-input">Date of Birth</label>
+                                                    <input class="form-control" type="date" id="example-datetime-local-input" name="dob">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="form-label" for="example-number">Mobile Number</label>
+                                                    <input class="form-control" id="example-number" type="number" name="mobile">
+                                                </div>
+
+                                                <div class="form-group mb-0">
+                                                    <label class="form-label">Select a Photo (Browser)</label>
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="customFile" placeholder="Select a Photo" name="image">
+                                                        <label class="custom-file-label" for="customFile">Choose file</label>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <h3>Job & Blood Activity</h3>
+                                                <div class="form-group">
+                                                    <label class="form-label" for="example-number">Current Job</label>
+                                                    <input class="form-control" id="example-number" type="text" name="currentJob">
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="form-label" for="example-select">Blood Group</label>
-                                                    <select class="form-control" id="example-select">
+                                                    <select class="form-control" id="example-select" name="blood">
                                                         <option>Select</option>
                                                         <option value="O+">O+</option>
                                                         <option value="O-">O-</option>
@@ -75,24 +91,15 @@
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="form-label" for="example-datetime-local-input">Date of Birth</label>
-                                                    <input class="form-control" type="datetime-local" id="example-datetime-local-input">
+                                                    <label class="form-label" for="example-number">Blood Status</label>
+                                                    <select class="form-control" id="example-select" name="bloodStatus">
+                                                        <option>Select</option>
+                                                        <option value="Available">Available</option>
+                                                        <option value="Unavailable">Unavailable</option>
+                                                    </select>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label class="form-label" for="example-number">Mobile Number</label>
-                                                    <input class="form-control" id="example-number" type="number" name="number">
-                                                </div>
-
-                                                <div class="form-group mb-0">
-                                                    <label class="form-label">Select a Photo (Browser)</label>
-                                                    <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="customFile" placeholder="Select a Photo">
-                                                        <label class="custom-file-label" for="customFile">Choose file</label>
-                                                    </div>
-                                                </div>
-
                                                 <div class="form-group" style="margin-top: 20px;">
-                                                	<button type="button" class="btn btn-success btn-pills waves-effect waves-themed">Update Profile</button>
+                                                	<button type="submit" class="btn btn-success btn-pills waves-effect waves-themed">Update Profile</button>
                                                 </div>
                                             </form>
                                         </div>
