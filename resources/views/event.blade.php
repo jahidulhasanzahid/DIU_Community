@@ -15,30 +15,34 @@
         <div class="row">
             <div class="col-lg-12 col-xl-6 order-lg-3 order-xl-2">
                                 <div class="card border mb-g">
-                                    <div class="card-body pl-4 pt-4 pr-4 pb-0">
-                                        <div class="d-flex flex-column">
-                                            <div class="border-0 flex-1 position-relative shadow-top">
-                                                <div class="pt-2 pb-1 pr-0 pl-0 rounded-0 position-relative" tabindex="-1">
-                                                    <span class="profile-image rounded-circle d-block position-absolute" style="background-image:url('{{asset('frontend/img/demo/avatars/avatar-admin.png')}} '); background-size: cover;"></span>
-                                                    <div class="pl-5 ml-5">
-                                                        <textarea class="form-control border-0 p-0 fs-xl" rows="4" placeholder="What's on your mind Codex?..."></textarea>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="height-8 d-flex flex-row align-items-center flex-wrap flex-shrink-0">
-                                                <a href="javascript:void(0);" class="btn btn-icon fs-xl width-1 mr-1" data-toggle="tooltip" data-original-title="More options" data-placement="top">
-                                                    <i class="fal fa-ellipsis-v-alt color-fusion-300"></i>
-                                                </a>
-                                                <a href="javascript:void(0);" class="btn btn-icon fs-xl mr-1" data-toggle="tooltip" data-original-title="Attach files" data-placement="top">
-                                                    <i class="fal fa-paperclip color-fusion-300"></i>
-                                                </a>
-                                                <a href="javascript:void(0);" class="btn btn-icon fs-xl mr-1" data-toggle="tooltip" data-original-title="Insert photo" data-placement="top">
-                                                    <i class="fal fa-camera color-fusion-300"></i>
-                                                </a>
-                                                <button class="btn btn-info shadow-0 ml-auto">Post</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                    <div class="card-body pl-4 pt-4 pr-4 pb-0">
+                        <div class="d-flex flex-column">
+                        <div class="border-0 flex-1 position-relative shadow-top">
+                            <form action="" method="">
+                                <label class="form-label" for="example-textarea">Create Event Post</label>
+                                <div class="form-group">
+                                    <input class="form-control" type="date">
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" id="example-select">
+                                        <option>Select Post Type</option>
+                                        <option>Programming</option>
+                                        <option>Machine Learning</option>
+                                        <option>Artificial Intelligence</option>
+                                        <option>Study in Abroad</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" id="example-textarea" rows="5"></textarea>
+                                </div>
+
+                                <div class="height-8 d-flex flex-row align-items-center flex-wrap flex-shrink-0">
+                                    <button class="btn btn-info shadow-0 ml-auto">Post</button>
+                                </div>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
                                 </div>
                                 <!-- post comment -->
                                 <div class="card mb-g">

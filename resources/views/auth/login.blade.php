@@ -6,12 +6,16 @@
             <div class="row">
                 <div class="col col-md-6 col-lg-7 hidden-sm-down">
                     <h2 class="fs-xxl fw-500 mt-4 text-white">
-                        The simplest UI toolkit for developers &amp; programmers
+                        Hello DIU all developers &amp; programmers
                         <small class="h3 fw-300 mt-3 mb-5 text-white opacity-60">
-                            Presenting you with the next level of innovative UX design and engineering. The most modular toolkit available with over 600+ layout permutations. Experience the simplicity of SmartAdmin, everywhere you go!
+                           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                         </small>
                     </h2>
-                    <a href="#" class="fs-lg fw-500 text-white opacity-70">Learn more &gt;&gt;</a>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-5 col-xl-4 ml-auto">
                     <h1 class="text-white fw-300 mb-3 d-sm-block d-md-none">
