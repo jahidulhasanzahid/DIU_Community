@@ -7,6 +7,8 @@ use Auth;
 use DB;
 use App\User;
 use App\studentinformation;
+use file;
+use Image;
 
 class profileController extends Controller
 {
@@ -22,8 +24,11 @@ class profileController extends Controller
     	return view('profile');
     }
 
-    public function profileEdit(){
-    	return view('profile-update');
+    public function profileEdit($id){
+        $data = DB::table('studentinformations')
+                    ->where('userID', '=', $id)
+                    ->get();
+    	return view('profile-update',compact('data'));
     }
 
     public function profileUpdate(Request $request){

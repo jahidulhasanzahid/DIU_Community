@@ -22,7 +22,10 @@
                                     <small class="text-muted mb-0">Dhaka, Bangladesh</small>
                                     <small>Daffodil International University, Department of Software Engeering.</small>
                                     <b> Blood Group: O+ "available"</b> <br> <BR>
-                                    <a href="{{ url('profile/edit') }}">Update Profile</a>
+                                    <?php
+                                        $id = Auth::user()->id;
+                                    ?>
+                                    <a href="{{ url('profile/edit',Auth::user()->id) }}">Update Profile</a>
 
                                 </h5>
                                 

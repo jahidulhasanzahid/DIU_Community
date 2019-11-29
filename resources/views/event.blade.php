@@ -33,6 +33,9 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
+                                    <input class="form-control" type="file">
+                                </div>
+                                <div class="form-group">
                                     <textarea class="form-control" id="example-textarea" rows="5"></textarea>
                                 </div>
 
