@@ -7,6 +7,7 @@ use Auth;
 use DB;
 use App\community;
 use App\User;
+use App\studentinformation;
 
 class communityController extends Controller
 {
@@ -19,7 +20,13 @@ class communityController extends Controller
 
     public function index()
     {
-        return view('welcome');
+    	$allCommunityPost = DB::table('communities')
+            ->join('studentinformations', 'communities.userID', '=', 'studentinformations.userID')
+            ->join('users', 'communities.id', '=', 'users.id')
+            ->select('communities.*', 'studentinformations.*', 'users.*')
+            ->get();
+        // dd($allCommunityPost);
+        return view('welcome',compact('allCommunityPost'));
     }
 
 
