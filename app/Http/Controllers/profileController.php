@@ -21,7 +21,10 @@ class profileController extends Controller
 
     
     public function profile(){
-    	return view('profile');
+        $info = DB::table('studentinformations')
+                    ->where('userID', '=', Auth::user()->id)
+                    ->get();
+    	return view('profile',compact('info'));
     }
 
     public function profileEdit($id){

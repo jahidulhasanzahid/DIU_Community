@@ -19,9 +19,11 @@
                                 <img src="{{asset('frontend/img/demo/avatars/avatar-admin-lg.png')}}" class="rounded-circle shadow-2 img-thumbnail" alt="">
                                 <h5 class="mb-0 fw-700 text-center mt-3">
                                    {{Auth::user()->name}}
+                                   @foreach($info as $singleData)
                                     <small class="text-muted mb-0">Dhaka, Bangladesh</small>
-                                    <small>Daffodil International University, Department of Software Engeering.</small>
-                                    <b> Blood Group: O+ "available"</b> <br> <BR>
+                                    <small>Daffodil International University, {{$singleData->department}}</small>
+                                    <b> Blood Group: {{ $singleData->blood }} "{{ $singleData->bloodStatus }}"</b> <br> <BR>
+                                    @endforeach
                                     <?php
                                         $id = Auth::user()->id;
                                     ?>

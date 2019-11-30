@@ -12,15 +12,19 @@
 */
 
 
-Route::get('/','HomeController@index')->name('welcome');
+Route::get('/','communityController@index')->name('welcome');
+Route::post('/community-post','communityController@communityPost')->name('communityPost');
 Route::get('/profile','profileController@profile')->name('profile');
 Route::get('/profile/edit/{id}','profileController@profileEdit')->name('profile.edit');
 Route::post('/profile-update','profileController@profileUpdate')->name('profileUpdate');
 
 Route::get('/messages','messageController@message')->name('message');
 Route::get('/events','eventController@events')->name('events');
+Route::post('/event-post','eventController@eventPost')->name('eventPost');
 Route::get('/jobs','jobController@jobs')->name('jobs');
+Route::post('/job-post','jobController@jobPost')->name('jobPost');
 Route::get('/bloods','bloodController@bloods')->name('bloods');
+Route::post('/blood-post','bloodController@bloodPost')->name('bloodPost');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

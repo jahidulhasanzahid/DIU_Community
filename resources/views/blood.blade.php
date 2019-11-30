@@ -18,10 +18,11 @@
                                    <div class="card-body pl-4 pt-4 pr-4 pb-0">
                         <div class="d-flex flex-column">
                         <div class="border-0 flex-1 position-relative shadow-top">
-                            <form action="" method="">
+                            <form action="{{ url('/blood-post') }}" method="post">
+                                @csrf
                                 <label class="form-label" for="example-textarea">Create Blood Post</label>
                                 <div class="form-group">
-                                    <select class="form-control" id="example-select">
+                                    <select class="form-control" id="example-select" name="bloodGroup" required>
                                         <option>Select Needed Blood Group</option>
                                         <option value="O+">O+</option>
                                         <option value="O-">O-</option>
@@ -34,11 +35,11 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <textarea class="form-control" id="example-textarea" rows="5"></textarea>
+                                    <textarea class="form-control" id="example-textarea" rows="5" name="description" required></textarea>
                                 </div>
 
                                 <div class="height-8 d-flex flex-row align-items-center flex-wrap flex-shrink-0">
-                                    <button class="btn btn-info shadow-0 ml-auto">Post</button>
+                                    <button type="submit" class="btn btn-info shadow-0 ml-auto">Post</button>
                                 </div>
                             </form>
                             </div>
