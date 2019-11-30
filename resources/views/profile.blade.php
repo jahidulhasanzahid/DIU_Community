@@ -22,7 +22,8 @@
                                    @foreach($info as $singleData)
                                     <small class="text-muted mb-0">Dhaka, Bangladesh</small>
                                     <small>Daffodil International University, {{$singleData->department}}</small>
-                                    <b> Blood Group: {{ $singleData->blood }} "{{ $singleData->bloodStatus }}"</b> <br> <BR>
+                                    <b> Blood Group: {{ $singleData->blood }} "{{ $singleData->bloodStatus }}"</b> <br>
+                                    <b> Current Job: {{ $singleData->currentJob }}</b> <br> <br>
                                     @endforeach
                                     <?php
                                         $id = Auth::user()->id;
