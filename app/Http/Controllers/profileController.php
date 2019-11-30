@@ -24,7 +24,23 @@ class profileController extends Controller
         $info = DB::table('studentinformations')
                     ->where('userID', '=', Auth::user()->id)
                     ->get();
-    	return view('profile',compact('info'));
+
+        $communityPost = DB::table('communities')
+                    ->where('userID', '=', Auth::user()->id)
+                    ->get();
+
+        $jobPost = DB::table('jobs')
+                    ->where('userID', '=', Auth::user()->id)
+                    ->get();
+                    
+        $bloodNeedPost = DB::table('bloods')
+                    ->where('userID', '=', Auth::user()->id)
+                    ->get();
+
+        $eventPost = DB::table('events')
+                    ->where('userID', '=', Auth::user()->id)
+                    ->get();
+    	return view('profile',compact('info','communityPost','jobPost','bloodNeedPost','eventPost'));
     }
 
     public function profileEdit($id){

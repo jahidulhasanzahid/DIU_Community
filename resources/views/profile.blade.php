@@ -63,17 +63,77 @@
                 </div>
 
             </div>
+
+
             <div class="col-lg-12 col-xl-6 order-lg-3 order-xl-2">
                 <div class="card border mb-g">
                     <div class="card-body pl-4 pt-4 pr-4 pb-0">
                         <div class="d-flex flex-column">
+                            <h2>Community Status</h2>
+                        	<!-- datatable community status start -->
+                            <table id="dt-basic-example" class="table table-bordered table-hover table-striped w-100">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Type</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($communityPost as $cp)
+                                    <tr>
+                                        <td>{{ Auth::user()->name }}</td>
+                                        <td>Status: {{ $cp->statusType }}</td>
+                                        <td>{{ $cp->status }}</td>
+                                        <td></td>
+                                    </tr>
+                                    @endforeach
 
-                        	All Activity
+                                    @foreach($eventPost as $ep)
+                                    <tr>
+                                        <td>{{ Auth::user()->name }}</td>
+                                        <td>Event: {{ $ep->eventType }}</td>
+                                        <td>{{ $ep->description }}</td>
+                                        <td></td>
+                                    </tr>
+                                    @endforeach
+
+                                    @foreach($jobPost as $jp)
+                                    <tr>
+                                        <td>{{ Auth::user()->name }}</td>
+                                        <td>Job: {{ $jp->jobType }}</td>
+                                        <td>{{ $jp->description }}</td>
+                                        <td></td>
+                                    </tr>
+                                    @endforeach
+                                    
+                                    @foreach($bloodNeedPost as $np)
+                                    <tr>
+                                        <td>{{ Auth::user()->name }}</td>
+                                        <td>Blood: {{ $np->bloodGroup }}</td>
+                                        <td>{{ $np->description }}</td>
+                                        <td></td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Type</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            <!-- datatable end -->
 
                         </div>
                     </div>
                 </div>
             </div>
+
+
             <div class="col-lg-6 col-xl-3 order-lg-2 order-xl-3">
                 <!-- rating -->
                 <div class="card mb-g">
