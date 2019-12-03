@@ -17,7 +17,16 @@ class bloodController extends Controller
 
     
     public function bloods(){
-    	return view('blood');
+
+        $allBloodPost = DB::table('bloods')
+            ->join('studentinformations', 'bloods.userID', '=', 'studentinformations.userID')
+            ->join('users', 'bloods.userID', '=', 'users.id')
+            ->select('bloods.*', 'studentinformations.*', 'users.*')
+            ->orderBy('bloods.id','DESC')
+            ->get();
+        // dd($allCommunityPost);
+
+    	return view('blood',compact('allBloodPost'));
     }
 
     public function bloodPost(Request $request){

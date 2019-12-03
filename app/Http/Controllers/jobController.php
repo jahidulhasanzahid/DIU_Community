@@ -18,7 +18,15 @@ class jobController extends Controller
 
     
     public function jobs(){
-    	return view('job');
+        $allJobPost = DB::table('jobs')
+            ->join('studentinformations', 'jobs.userID', '=', 'studentinformations.userID')
+            ->join('users', 'jobs.userID', '=', 'users.id')
+            ->select('jobs.*', 'studentinformations.*', 'users.*')
+            ->orderBy('jobs.id','DESC')
+            ->get();
+        // dd($allCommunityPost);
+
+    	return view('job',compact('allJobPost'));
     }
 
 

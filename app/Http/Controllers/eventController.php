@@ -17,7 +17,14 @@ class eventController extends Controller
 
     
     public function events(){
-    	return view('event');
+         $allEventPost = DB::table('events')
+            ->join('studentinformations', 'events.userID', '=', 'studentinformations.userID')
+            ->join('users', 'events.userID', '=', 'users.id')
+            ->select('events.*', 'studentinformations.*', 'users.*')
+            ->orderBy('events.id','DESC')
+            ->get();
+
+    	return view('event',compact('allEventPost'));
     }
 
 

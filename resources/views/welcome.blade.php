@@ -51,7 +51,7 @@
                                 <span class="profile-image rounded-circle d-block" style="background-image:url('img/demo/avatars/avatar-e.png'); background-size: cover;"></span>
                             </div>
                             <h5 class="mb-0 flex-1 text-dark fw-500">
-                                {{ $allComPost->name }} ({{ $allComPost->currentJob }})
+                                {{ $allComPost->name }} ({{ $allComPost->type }})
                                 <small class="m-0 l-h-n">
                                     {{ $allComPost->department }}
                                 </small>
@@ -68,18 +68,17 @@
                             {{ $allComPost->status }}
                         </div>
                         <div class="d-flex align-items-center demo-h-spacing py-3">
-                            <a href="javascript:void(0);" class="d-inline-flex align-items-center text-dark">
-                                <i class="fas fa-heart fs-xs mr-1 text-danger"></i> <span>2 Likes</span>
-                            </a>
-                            <a href="javascript:void(0);" class="d-inline-flex align-items-center text-dark">
-                                <i class="fal fa-comment fs-xs mr-1"></i> <span>2 Comments</span>
+                            <a href="javascript:void(0);" class="d-inline-flex align-items-center" style="color: green;">
+                                <i class="fal fa-comment fs-xs mr-1"></i> <span>Comments</span>
                             </a>
                         </div>
                     </div>
+                    <hr>
                     @endforeach
 
                 </div>
                 <!-- post comment - end -->
+
             </div>
         </div>
     </main>

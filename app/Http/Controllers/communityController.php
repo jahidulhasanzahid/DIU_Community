@@ -22,8 +22,9 @@ class communityController extends Controller
     {
     	$allCommunityPost = DB::table('communities')
             ->join('studentinformations', 'communities.userID', '=', 'studentinformations.userID')
-            ->join('users', 'communities.id', '=', 'users.id')
+            ->join('users', 'communities.userID', '=', 'users.id')
             ->select('communities.*', 'studentinformations.*', 'users.*')
+            ->orderBy('communities.id','DESC')
             ->get();
         // dd($allCommunityPost);
         return view('welcome',compact('allCommunityPost'));
