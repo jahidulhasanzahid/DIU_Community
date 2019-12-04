@@ -70,64 +70,84 @@
                 <div class="card border mb-g">
                     <div class="card-body pl-4 pt-4 pr-4 pb-0">
                         <div class="d-flex flex-column">
-                            <h2>Community Status</h2>
-                        	<!-- datatable community status start -->
-                            <table id="dt-basic-example" class="table table-bordered table-hover table-striped w-100">
-                                <thead>
+                            <h2>{{Auth::user()->name}}'s Status</h2>
+
+                            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Status Type.." title="Type in a blood/community/event/job" class="form-control">
+
+                            <br>
+                            <br>
+
+                            <table id="myTable" class="table table-bordered table-hover table-striped w-100">
+                              <tr class="header">
+                                <th style="width:30%;">Post Type</th>
+                                <th style="width:30%;">Description</th>
+                                <th style="width:30%;">Action</th>
+                              </tr>
+
+                              @foreach($communityPost as $cp)
+
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Type</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($communityPost as $cp)
-                                    <tr>
-                                        <td>{{ Auth::user()->name }}</td>
-                                        <td>Status: {{ $cp->statusType }}</td>
+                                        <td>Community: {{ $cp->statusType }}</td>
                                         <td>{{ $cp->status }}</td>
-                                        <td></td>
+                                        <td>
+                                            <a href="{{ url('status-edit',$cp->id) }}" class="btn btn-sm btn-success" style="float: left; margin-right: 10px;">Edit</a> 
+                                            <form class="form-inline" action="{!! route('status-delete', $cp->id) !!}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="cart_id" />
+                                            <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+                                          </form>
+                                        </td>
                                     </tr>
                                     @endforeach
 
                                     @foreach($eventPost as $ep)
                                     <tr>
-                                        <td>{{ Auth::user()->name }}</td>
                                         <td>Event: {{ $ep->eventType }}</td>
                                         <td>{{ $ep->description }}</td>
-                                        <td></td>
+                                        <td>
+                                            <a href="{{ url('event-edit',$ep->id) }}" class="btn btn-sm btn-success" style="float: left; margin-right: 10px;">Edit</a> 
+                                            <form class="form-inline" action="{!! route('event-delete', $ep->id) !!}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="cart_id" />
+                                            <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+                                          </form>
+                                        </td>
                                     </tr>
                                     @endforeach
 
                                     @foreach($jobPost as $jp)
                                     <tr>
-                                        <td>{{ Auth::user()->name }}</td>
                                         <td>Job: {{ $jp->jobType }}</td>
                                         <td>{{ $jp->description }}</td>
-                                        <td></td>
+                                        <td>
+                                            <a href="{{ url('job-edit',$jp->id) }}" class="btn btn-sm btn-success" style="float: left; margin-right: 10px;">Edit</a> 
+                                            <form class="form-inline" action="{!! route('job-delete', $jp->id) !!}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="cart_id" />
+                                            <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+                                          </form>
+                                        </td>
                                     </tr>
                                     @endforeach
                                     
                                     @foreach($bloodNeedPost as $np)
                                     <tr>
-                                        <td>{{ Auth::user()->name }}</td>
                                         <td>Blood: {{ $np->bloodGroup }}</td>
                                         <td>{{ $np->description }}</td>
-                                        <td></td>
+                                        <td>
+                                            <a href="{{ url('blood-edit',$np->id) }}" class="btn btn-sm btn-success" style="float: left; margin-right: 10px;">Edit</a> 
+                                            <form class="form-inline" action="{!! route('blood-delete', $np->id) !!}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="cart_id" />
+                                            <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+                                          </form>
+                                        </td>
                                     </tr>
                                     @endforeach
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Type</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </tfoot>
+
+
                             </table>
-                            <!-- datatable end -->
+
 
                         </div>
                     </div>
@@ -202,4 +222,25 @@
             });
 
         </script>
+
+        <script>
+            function myFunction() {
+              var input, filter, table, tr, td, i, txtValue;
+              input = document.getElementById("myInput");
+              filter = input.value.toUpperCase();
+              table = document.getElementById("myTable");
+              tr = table.getElementsByTagName("tr");
+              for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                  txtValue = td.textContent || td.innerText;
+                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                  } else {
+                    tr[i].style.display = "none";
+                  }
+                }       
+              }
+            }
+            </script>
 @endsection
