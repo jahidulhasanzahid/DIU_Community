@@ -14,6 +14,12 @@
 
 Route::get('/','communityController@index')->name('welcome');
 Route::post('/community-post','communityController@communityPost')->name('communityPost');
+Route::post('/status-delete/{id}','communityController@delete')->name('status-delete');
+Route::get('/status-edit/{id}','communityController@Edit')->name('status-edit');
+Route::post('/community-update/{id}','communityController@update')->name('community-update');
+
+
+
 Route::get('/profile','profileController@profile')->name('profile');
 Route::get('/profile/edit/{id}','profileController@profileEdit')->name('profile.edit');
 Route::post('/profile-update','profileController@profileUpdate')->name('profileUpdate');

@@ -23,7 +23,7 @@ class communityController extends Controller
     	$allCommunityPost = DB::table('communities')
             ->join('studentinformations', 'communities.userID', '=', 'studentinformations.userID')
             ->join('users', 'communities.userID', '=', 'users.id')
-            ->select('communities.*', 'studentinformations.*', 'users.*')
+            ->select('communities.*', 'studentinformations.type','studentinformations.department', 'users.name')
             ->orderBy('communities.id','DESC')
             ->get();
         // dd($allCommunityPost);
@@ -43,6 +43,47 @@ class communityController extends Controller
 	    session()->flash('success', 'A New Post Added Successfully !!');
 	    return back();
 	    }
+
+
+    public function delete($id)
+      {
+        
+        $status = community::find($id);
+        if (!is_null($status)) {
+          $status->delete();
+        }else {
+          return redirect()->route('status-delete');
+        }
+        session()->flash('success', 'Status has deleted !!');
+        return back();
+      }
+
+
+
+        public function Edit($id){
+
+        $editStatus= community::find($id);
+        if (!is_null($editStatus)) {
+          return view('edit-status', compact('editStatus'));
+        }else {
+          return back();
+        }
+
+        }
+
+
+        public function update(Request $request, $id)
+        {
+
+          $update = community::find($id);
+          $update->statusType = $request->statusType;
+          $update->status = $request->status;
+          $update->save();
+
+          session()->flash('success', 'Status has updated successfully !!');
+          return redirect()->route('welcome');
+
+        }
 
 
 }
