@@ -21,7 +21,7 @@ class bloodController extends Controller
         $allBloodPost = DB::table('bloods')
             ->join('studentinformations', 'bloods.userID', '=', 'studentinformations.userID')
             ->join('users', 'bloods.userID', '=', 'users.id')
-            ->select('bloods.*', 'studentinformations.*', 'users.*')
+            ->select('bloods.*', 'studentinformations.type','studentinformations.department', 'users.name')
             ->orderBy('bloods.id','DESC')
             ->get();
         // dd($allCommunityPost);
@@ -41,5 +41,48 @@ class bloodController extends Controller
     session()->flash('success', 'A New Post Added Successfully !!');
     return back();
     }
+
+
+
+    public function delete($id)
+      {
+        
+        $blood = blood::find($id);
+        if (!is_null($blood)) {
+          $blood->delete();
+        }else {
+          return redirect()->route('blood-delete');
+        }
+        session()->flash('success', 'Blood Status has deleted !!');
+        return back();
+      }
+
+
+
+        public function Edit($id){
+
+        $editblood= blood::find($id);
+        if (!is_null($editblood)) {
+          return view('edit-blood', compact('editblood'));
+        }else {
+          return back();
+        }
+
+        }
+
+
+        public function update(Request $request, $id)
+        {
+            // dd($id);
+          $update = blood::find($id);
+          $update->bloodGroup = $request->bloodGroup;
+          $update->description = $request->description;
+          $update->save();
+
+          session()->flash('success', 'Blood Status has updated successfully !!');
+          return redirect()->route('bloods');
+
+        }
+
 
 }

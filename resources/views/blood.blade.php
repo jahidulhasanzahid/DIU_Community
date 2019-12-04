@@ -14,8 +14,8 @@
         </div>
         <div class="row">
             <div class="col-lg-12 col-xl-6 order-lg-3 order-xl-2">
-                                <div class="card border mb-g">
-                                   <div class="card-body pl-4 pt-4 pr-4 pb-0">
+                    <div class="card border mb-g">
+                       <div class="card-body pl-4 pt-4 pr-4 pb-0">
                         <div class="d-flex flex-column">
                         <div class="border-0 flex-1 position-relative shadow-top">
                             <form action="{{ url('/blood-post') }}" method="post">
@@ -75,11 +75,19 @@
                             <a href="javascript:void(0);" class="d-inline-flex align-items-center" style="color: green;">
                                 <i class="fal fa-comment fs-xs mr-1"></i> <span>Comments</span>
                             </a>
+                            @if($allComPost->userID == Auth::user()->id)    
+                                <a href="{{ url('blood-edit',$allComPost->id) }}" class="btn btn-sm btn-success">Edit</a>
+                                <form class="form-inline" action="{!! route('blood-delete', $allComPost->id) !!}" method="post">
+                                @csrf
+                                <input type="hidden" name="cart_id" />
+                                <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+                              </form>
+
+                            @endif
                         </div>
                     </div>
                     <hr>
                     @endforeach
-
                 </div>
                 <!-- post comment - end -->
             </div>

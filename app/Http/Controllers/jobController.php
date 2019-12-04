@@ -21,7 +21,7 @@ class jobController extends Controller
         $allJobPost = DB::table('jobs')
             ->join('studentinformations', 'jobs.userID', '=', 'studentinformations.userID')
             ->join('users', 'jobs.userID', '=', 'users.id')
-            ->select('jobs.*', 'studentinformations.*', 'users.*')
+            ->select('jobs.*', 'studentinformations.type','studentinformations.department', 'users.name')
             ->orderBy('jobs.id','DESC')
             ->get();
         // dd($allCommunityPost);

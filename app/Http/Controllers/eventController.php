@@ -20,7 +20,7 @@ class eventController extends Controller
          $allEventPost = DB::table('events')
             ->join('studentinformations', 'events.userID', '=', 'studentinformations.userID')
             ->join('users', 'events.userID', '=', 'users.id')
-            ->select('events.*', 'studentinformations.*', 'users.*')
+            ->select('events.*', 'studentinformations.type','studentinformations.department', 'users.name')
             ->orderBy('events.id','DESC')
             ->get();
 
