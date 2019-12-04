@@ -43,4 +43,48 @@ class eventController extends Controller
     }
 
 
+
+    public function delete($id)
+      {
+        
+        $event = event::find($id);
+        if (!is_null($event)) {
+          $event->delete();
+        }else {
+          return redirect()->route('event-delete');
+        }
+        session()->flash('success', 'Event Status has deleted !!');
+        return back();
+      }
+
+
+
+        public function Edit($id){
+
+        $editevent= event::find($id);
+        if (!is_null($editevent)) {
+          return view('edit-event', compact('editevent'));
+        }else {
+          return back();
+        }
+
+        }
+
+
+        public function update(Request $request, $id)
+        {
+            // dd($id);
+          $update = event::find($id);
+          $update->time = $request->time;
+          $update->eventType = $request->eventType;
+          $update->description = $request->description;
+          $update->save();
+
+          session()->flash('success', 'Event Status has updated successfully !!');
+          return redirect()->route('events');
+
+        }
+
+
+
 }

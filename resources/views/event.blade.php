@@ -14,7 +14,7 @@
         </div>
         <div class="row">
             <div class="col-lg-12 col-xl-6 order-lg-3 order-xl-2">
-                                <div class="card border mb-g">
+                <div class="card border mb-g">
                     <div class="card-body pl-4 pt-4 pr-4 pb-0">
                         <div class="d-flex flex-column">
                         <div class="border-0 flex-1 position-relative shadow-top">
@@ -52,7 +52,7 @@
                         </div>
                     </div>
                 </div>
-                                <!-- post comment -->
+            <!-- post comment -->
                 <div class="card mb-g">
                     @foreach($allEventPost as $allComPost)
                     <div class="card-body pb-0 px-4">
@@ -69,6 +69,9 @@
                                 <small class="m-0 l-h-n">
                                     Event Topic: <b>{{ $allComPost->eventType }}</b>
                                 </small>
+                                <small class="m-0 l-h-n">
+                                    Event Date: <b>{{ $allComPost->time }}</b>
+                                </small>
                             </h5>
                             <span class="text-muted fs-xs opacity-70">
                                 3 hours
@@ -81,6 +84,15 @@
                             <a href="javascript:void(0);" class="d-inline-flex align-items-center" style="color: green;">
                                 <i class="fal fa-comment fs-xs mr-1"></i> <span>Comments</span>
                             </a>
+                             @if($allComPost->userID == Auth::user()->id)    
+                                <a href="{{ url('event-edit',$allComPost->id) }}" class="btn btn-sm btn-success">Edit</a>
+                                <form class="form-inline" action="{!! route('event-delete', $allComPost->id) !!}" method="post">
+                                @csrf
+                                <input type="hidden" name="cart_id" />
+                                <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+                              </form>
+
+                             @endif  
                         </div>
                     </div>
                     <hr>
@@ -88,7 +100,7 @@
 
                 </div>
                 <!-- post comment - end -->
-                            </div>
+            </div>
         </div>
     </main>
 

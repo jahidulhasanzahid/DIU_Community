@@ -33,6 +33,9 @@ Route::get('/messages','messageController@message')->name('message');
 //event all route start
 Route::get('/events','eventController@events')->name('events');
 Route::post('/event-post','eventController@eventPost')->name('eventPost');
+Route::post('/event-delete/{id}','eventController@delete')->name('event-delete');
+Route::get('/event-edit/{id}','eventController@Edit')->name('event-edit');
+Route::post('/event-update/{id}','eventController@update')->name('event-update');
 //event all route end
 
 //jobs all route start
