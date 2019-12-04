@@ -38,6 +38,9 @@ Route::post('/event-post','eventController@eventPost')->name('eventPost');
 //jobs all route start
 Route::get('/jobs','jobController@jobs')->name('jobs');
 Route::post('/job-post','jobController@jobPost')->name('jobPost');
+Route::post('/job-delete/{id}','jobController@delete')->name('job-delete');
+Route::get('/job-edit/{id}','jobController@Edit')->name('job-edit');
+Route::post('/job-update/{id}','jobController@update')->name('job-update');
 //jobs all route end
 
 //blood all route start

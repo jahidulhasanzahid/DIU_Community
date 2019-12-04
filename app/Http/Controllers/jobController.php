@@ -43,4 +43,45 @@ class jobController extends Controller
     return back();
     }
 
+    public function delete($id)
+      {
+        
+        $job = job::find($id);
+        if (!is_null($job)) {
+          $job->delete();
+        }else {
+          return redirect()->route('job-delete');
+        }
+        session()->flash('success', 'Blood Status has deleted !!');
+        return back();
+      }
+
+
+
+        public function Edit($id){
+
+        $editjob= job::find($id);
+        if (!is_null($editjob)) {
+          return view('edit-job', compact('editjob'));
+        }else {
+          return back();
+        }
+
+        }
+
+
+        public function update(Request $request, $id)
+        {
+            // dd($id);
+          $update = job::find($id);
+          $update->jobType = $request->jobType;
+          $update->description = $request->description;
+          $update->save();
+
+          session()->flash('success', 'Job Status has updated successfully !!');
+          return redirect()->route('jobs');
+
+        }
+
+
 }
