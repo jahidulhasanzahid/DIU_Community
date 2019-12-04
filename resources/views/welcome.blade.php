@@ -44,6 +44,7 @@
                 </div>
                 <!-- post comment -->
                 <div class="card mb-g">
+
                     @foreach($allCommunityPost as $allComPost)
                     <div class="card-body pb-0 px-4">
                         <div class="d-flex flex-row pb-3 pt-2  border-top-0 border-left-0 border-right-0">
