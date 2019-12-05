@@ -59,3 +59,23 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+
+
+//admin
+Route::group(['prefix' => 'backend'], function(){
+	 // Admin Login Routes
+	  // Route::get('/', 'Auth\Admin\LoginController@showLoginForm')->name('admin.login');
+	  // Route::post('/adminlogin-submit', 'Auth\Admin\LoginController@login')->name('admin.login.submit');
+	  // Route::post('/adminlogout-submit', 'Auth\Admin\LoginController@logout')->name('admin.logout');
+	//Others Routes
+	Route::get('/deshboard', 'admin\userControlController@index')->name('admin.index');
+	Route::get('/teacher', 'admin\userControlController@teacher')->name('admin.teacher');
+	Route::get('/student', 'admin\userControlController@student')->name('admin.student');
+
+	Route::get('/community', 'admin\postControlController@community')->name('admin.community');
+	Route::get('/event', 'admin\postControlController@event')->name('admin.event');
+	Route::get('/blood', 'admin\postControlController@blood')->name('admin.blood');
+	Route::get('/job', 'admin\postControlController@job')->name('admin.job');
+
+});
