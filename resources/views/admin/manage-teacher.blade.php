@@ -23,18 +23,22 @@
                                       <th>Department</th>
                                       <td>Teacher ID</td>
                                       <td>Email</td>
+                                      <td>Blood</td>
                                       <td>Action</td>
                                     </tr>
                             	</thead>
                               
                                 <tbody>
+                                  @foreach($users as $user)
                                 	<tr>
-                                    	  <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                    	  <td>{{ $user->name }}</td>
+                                        <td>{{ $user->department }}</td>
+                                        <td>{{ $user->SRid }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>{{ $user->blood }}</td>
                                         <td><a href="#deleteModal" data-toggle="modal" class="btn btn-danger">Delete</a></td>
                                     </tr>
+                                  @endforeach
                                 </tbody>
                                  <!--delete data modal-->
                                 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
