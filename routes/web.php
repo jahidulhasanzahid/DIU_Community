@@ -64,11 +64,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //admin
 Route::group(['prefix' => 'backend'], function(){
-	 // Admin Login Routes
-	  // Route::get('/', 'Auth\Admin\LoginController@showLoginForm')->name('admin.login');
-	  // Route::post('/adminlogin-submit', 'Auth\Admin\LoginController@login')->name('admin.login.submit');
-	  // Route::post('/adminlogout-submit', 'Auth\Admin\LoginController@logout')->name('admin.logout');
+
+	 //Admin Login Routes
+	
+	  Route::get('/', 'Auth\Admin\LoginController@showLoginForm')->name('admin.login');
+	  Route::post('/adminlogin-submit', 'Auth\Admin\LoginController@login')->name('admin.login.submit');
+	  Route::post('/adminlogout-submit', 'Auth\Admin\LoginController@logout')->name('admin.logout');
+
 	//Others Routes
+
 	Route::get('/deshboard', 'admin\userControlController@index')->name('admin.index');
 	Route::get('/teacher', 'admin\userControlController@teacher')->name('admin.teacher');
 	Route::post('/admin-teacher/{id}','admin\userControlController@teacherdelete')->name('teacher-delete');

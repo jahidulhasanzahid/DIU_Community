@@ -12,7 +12,12 @@ use App\event;
 use App\community;
 
 class postControlController extends Controller
-{
+{ 
+    public function __construct()
+      {
+        $this->middleware('auth:admin');
+      }
+      
     public function community(){
         $posts = DB::table('users')
             ->join('communities', 'users.id', '=', 'communities.userID')
