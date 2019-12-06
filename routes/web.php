@@ -74,8 +74,15 @@ Route::group(['prefix' => 'backend'], function(){
 	Route::get('/student', 'admin\userControlController@student')->name('admin.student');
 
 	Route::get('/community', 'admin\postControlController@community')->name('admin.community');
+	Route::post('/admin-community-delete/{id}','admin\postControlController@communitydelete')->name('community-delete');
+
 	Route::get('/event', 'admin\postControlController@event')->name('admin.event');
+	Route::post('/admin-event-delete/{id}','admin\postControlController@eventdelete')->name('event-delete');
+
 	Route::get('/blood', 'admin\postControlController@blood')->name('admin.blood');
+	Route::post('/admin-blood-delete/{id}','admin\postControlController@blooddelete')->name('blood-delete');
+
 	Route::get('/job', 'admin\postControlController@job')->name('admin.job');
+	Route::post('/admin-job-delete/{id}','admin\postControlController@jobdelete')->name('job-delete');
 
 });
