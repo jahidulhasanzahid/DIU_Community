@@ -20,6 +20,7 @@
                               <thead class="table_head">
                                 <tr>
                                       <th>Name</th>
+                                      <th>User Type</th>
                                       <th>Job Type</th>
                                       <td>Description</td>
                                       <td>Action</td>
@@ -27,12 +28,15 @@
                               </thead>
                               
                                 <tbody>
+                                   @foreach($posts as $post)
                                   <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td><a href="#deleteModal" data-toggle="modal" class="btn btn-danger">Delete</a></td>
-                                    </tr>
+                                      <td>{{ $post->name }}</td>
+                                      <td>{{  $post->type }}</td>
+                                      <td>{{ $post->jobType }}</td>
+                                      <td>{{ $post->description }}</td>
+                                      <td><a href="#deleteModal" data-toggle="modal" class="btn btn-danger">Delete</a></td>
+                                  </tr>
+                                  @endforeach
                                 </tbody>
                                  <!--delete data modal-->
                                 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

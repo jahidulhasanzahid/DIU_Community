@@ -10,18 +10,38 @@ use DB;
 class postControlController extends Controller
 {
     public function community(){
-    	return view('admin.manage-community');
+        $posts = DB::table('users')
+            ->join('communities', 'users.id', '=', 'communities.userID')
+            ->join('studentinformations','users.id', '=', 'studentinformations.userID')
+            ->select('users.name','communities.*','studentinformations.type')
+            ->get();
+    	return view('admin.manage-community',compact('posts'));
     }
 
     public function event(){
-    	return view('admin.manage-event');
+        $posts = DB::table('users')
+            ->join('events', 'users.id', '=', 'events.userID')
+            ->join('studentinformations','users.id', '=', 'studentinformations.userID')
+            ->select('users.name','events.*','studentinformations.type')
+            ->get();
+    	return view('admin.manage-event',compact('posts'));
     }
 
     public function job(){
-    	return view('admin.manage-job');
+        $posts = DB::table('users')
+            ->join('jobs', 'users.id', '=', 'jobs.userID')
+            ->join('studentinformations','users.id', '=', 'studentinformations.userID')
+            ->select('users.name','jobs.*','studentinformations.type')
+            ->get();
+    	return view('admin.manage-job',compact('posts'));
     }
 
     public function blood(){
-    	return view('admin.manage-blood');
+        $posts = DB::table('users')
+            ->join('bloods', 'users.id', '=', 'bloods.userID')
+            ->join('studentinformations','users.id', '=', 'studentinformations.userID')
+            ->select('users.name','bloods.*','studentinformations.type')
+            ->get();
+    	return view('admin.manage-blood',compact('posts'));
     }
 }
