@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
 use DB;
+use App\job;
+use App\studentinformation;
+use App\User;
+use App\blood;
+use App\event;
+use App\community;
 
 class userControlController extends Controller
 {
@@ -22,6 +28,24 @@ class userControlController extends Controller
     	return view('admin.manage-teacher',compact('users'));
     }
 
+    public function teacherdelete($id)
+      {
+    
+        if (!is_null($id)) {
+            $data = DB::table('users')->where('id', '=', $id)->delete();
+            $data = DB::table('studentinformations')->where('userID', '=', $id)->delete();
+            $data = DB::table('communities')->where('userID', '=', $id)->delete();
+            $data = DB::table('bloods')->where('userID', '=', $id)->delete();
+            $data = DB::table('jobs')->where('userID', '=', $id)->delete();
+            $data = DB::table('events')->where('userID', '=', $id)->delete();
+        }else {
+          return redirect()->route('/backend/teacher');
+        }
+        session()->flash('success', 'Job status has deleted !!');
+        return back();
+      }
+
+
     public function student(){
     	$users = DB::table('users')
             ->join('studentinformations', 'users.id', '=', 'studentinformations.userID')
@@ -30,4 +54,23 @@ class userControlController extends Controller
             ->get();
     	return view('admin.manage-student',compact('users'));
     }
+
+
+    public function studentdelete($id)
+      {
+    
+        if (!is_null($id)) {
+            $data = DB::table('users')->where('id', '=', $id)->delete();
+            $data = DB::table('studentinformations')->where('userID', '=', $id)->delete();
+            $data = DB::table('communities')->where('userID', '=', $id)->delete();
+            $data = DB::table('bloods')->where('userID', '=', $id)->delete();
+            $data = DB::table('jobs')->where('userID', '=', $id)->delete();
+            $data = DB::table('events')->where('userID', '=', $id)->delete();
+        }else {
+          return redirect()->route('/backend/student');
+        }
+        session()->flash('success', 'Job status has deleted !!');
+        return back();
+      }
+
 }

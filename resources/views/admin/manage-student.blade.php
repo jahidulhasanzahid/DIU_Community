@@ -36,12 +36,11 @@
                                         <td>{{ $user->SRid }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->blood }}</td>
-                                        <td><a href="#deleteModal" data-toggle="modal" class="btn btn-danger">Delete</a></td>
+                                        <td><a href="#deleteModal{{ $user->id }}" data-toggle="modal" class="btn btn-danger">Delete</a></td>
                                     </tr>
-                                  @endforeach
-                                </tbody>
-                                 <!--delete data modal-->
-                                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                                     <!--delete data modal-->
+                                <div class="modal fade" id="deleteModal{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                       <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                           <div class="modal-header">
@@ -52,7 +51,7 @@
                                           </div>
                                           
                                           <div class="modal-body">
-                                            <form action=""  method="post">
+                                            <form action="{{ url('/backend/admin-student',$user->id) }}"  method="post">
                                               @csrf
                                               <button type="submit" class="btn btn-danger">Permanent Delete</button>
                                             </form>
@@ -65,7 +64,8 @@
                                       </div>
                                     </div>
                                     <!--data modal-->
-                               
+                                  @endforeach
+                                </tbody>
                           </table>
                       </div>
                     </div>

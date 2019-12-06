@@ -71,7 +71,12 @@ Route::group(['prefix' => 'backend'], function(){
 	//Others Routes
 	Route::get('/deshboard', 'admin\userControlController@index')->name('admin.index');
 	Route::get('/teacher', 'admin\userControlController@teacher')->name('admin.teacher');
+	Route::post('/admin-teacher/{id}','admin\userControlController@teacherdelete')->name('teacher-delete');
+
+
 	Route::get('/student', 'admin\userControlController@student')->name('admin.student');
+	Route::post('/admin-student/{id}','admin\userControlController@studentdelete')->name('student-delete');
+
 
 	Route::get('/community', 'admin\postControlController@community')->name('admin.community');
 	Route::post('/admin-community-delete/{id}','admin\postControlController@communitydelete')->name('community-delete');
