@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2019 at 08:51 PM
+-- Generation Time: Dec 06, 2019 at 07:18 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -25,6 +25,28 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admins`
+--
+
+CREATE TABLE `admins` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`, `name`, `email`, `password`, `created_at`, `updated_at`) VALUES
+(1, 'Saidi', 'admin@diucommunity.com', '$2y$10$xFXG5bXlagOTioscMl4B3eIF1Kui/mo6A7UNnM6WzxlErqjRZ.t1u', '2019-12-06 12:10:35', '2019-12-06 12:10:35');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `bloods`
 --
 
@@ -32,7 +54,7 @@ CREATE TABLE `bloods` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `userID` int(11) DEFAULT NULL,
   `bloodGroup` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -42,7 +64,8 @@ CREATE TABLE `bloods` (
 --
 
 INSERT INTO `bloods` (`id`, `userID`, `bloodGroup`, `description`, `created_at`, `updated_at`) VALUES
-(1, 1, 'O-', 'Test.', '2019-11-30 13:15:39', '2019-11-30 13:15:39');
+(1, 1, 'O-', 'Test.', '2019-11-30 13:15:39', '2019-11-30 13:15:39'),
+(6, 2, 'A+', 'Test', '2019-12-04 13:44:52', '2019-12-04 13:44:52');
 
 -- --------------------------------------------------------
 
@@ -54,7 +77,7 @@ CREATE TABLE `communities` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `userID` int(11) DEFAULT NULL,
   `statusType` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -64,7 +87,9 @@ CREATE TABLE `communities` (
 --
 
 INSERT INTO `communities` (`id`, `userID`, `statusType`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Programming', 'Test.', '2019-11-30 12:58:49', '2019-11-30 12:58:49');
+(6, 1, 'Programming', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2019-12-03 11:09:23', '2019-12-03 11:09:23'),
+(9, 2, 'Education', 'Test update', '2019-12-04 13:44:28', '2019-12-04 13:45:10'),
+(10, 1, 'Social Awareness', 'Test', '2019-12-04 14:10:26', '2019-12-04 14:10:26');
 
 -- --------------------------------------------------------
 
@@ -77,7 +102,7 @@ CREATE TABLE `events` (
   `userID` int(11) DEFAULT NULL,
   `time` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `eventType` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -87,7 +112,7 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`id`, `userID`, `time`, `eventType`, `description`, `created_at`, `updated_at`) VALUES
-(1, 1, NULL, 'Programming', 'Test.', '2019-11-30 13:05:56', '2019-11-30 13:05:56');
+(4, 2, '2019-12-10', 'Programming', 'Test', '2019-12-04 13:44:40', '2019-12-04 13:44:40');
 
 -- --------------------------------------------------------
 
@@ -99,7 +124,7 @@ CREATE TABLE `jobs` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `userID` int(11) DEFAULT NULL,
   `jobType` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -109,7 +134,8 @@ CREATE TABLE `jobs` (
 --
 
 INSERT INTO `jobs` (`id`, `userID`, `jobType`, `description`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Full Time', 'Test.', '2019-11-30 13:10:33', '2019-11-30 13:10:33');
+(2, 1, 'Project Base', 'Test.', '2019-12-03 11:31:30', '2019-12-03 11:31:30'),
+(6, 2, 'Project Base', 'Test update', '2019-12-04 13:44:46', '2019-12-04 13:45:28');
 
 -- --------------------------------------------------------
 
@@ -134,7 +160,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (4, '2019_11_27_171304_create_communities_table', 1),
 (5, '2019_11_27_171320_create_jobs_table', 1),
 (6, '2019_11_27_171335_create_bloods_table', 1),
-(7, '2019_11_27_171416_create_studentinformations_table', 1);
+(7, '2019_11_27_171416_create_studentinformations_table', 1),
+(8, '2019_12_06_175438_create_admins_table', 2);
 
 -- --------------------------------------------------------
 
@@ -209,6 +236,13 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 --
 
 --
+-- Indexes for table `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `admins_email_unique` (`email`);
+
+--
 -- Indexes for table `bloods`
 --
 ALTER TABLE `bloods`
@@ -262,46 +296,52 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `admins`
+--
+ALTER TABLE `admins`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `bloods`
 --
 ALTER TABLE `bloods`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `communities`
 --
 ALTER TABLE `communities`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `studentinformations`
 --
 ALTER TABLE `studentinformations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
