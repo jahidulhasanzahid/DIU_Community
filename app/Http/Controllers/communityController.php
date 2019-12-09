@@ -71,6 +71,28 @@ class communityController extends Controller
 
         }
 
+        public function comment($id){
+
+        $comments= community::find($id);
+        //  dd($comments);
+        $allCommunityPost = DB::table('communities')
+            ->join('studentinformations', 'communities.userID', '=', 'studentinformations.userID')
+            ->join('users', 'communities.userID', '=', 'users.id')
+            ->select('communities.*', 'studentinformations.type','studentinformations.department', 'users.name')
+            ->where('communities.id',$id)
+            ->orderBy('communities.id','DESC')
+            ->get();
+
+
+        if (!is_null($comments)) {
+          return view('community-comment', compact('comments','allCommunityPost'));
+        }else {
+          return back();
+        }
+
+        }
+
+
 
         public function update(Request $request, $id)
         {

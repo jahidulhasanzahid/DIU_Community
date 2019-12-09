@@ -17,6 +17,7 @@ Route::post('/community-post','communityController@communityPost')->name('commun
 Route::post('/status-delete/{id}','communityController@delete')->name('status-delete');
 Route::get('/status-edit/{id}','communityController@Edit')->name('status-edit');
 Route::post('/community-update/{id}','communityController@update')->name('community-update');
+Route::get('/community-comment/{id}','communityController@comment')->name('community-comment');
 //community status all route end
 
 

@@ -14,34 +14,6 @@
         </div>
         <div class="row">
             <div class="col-lg-12 col-xl-6 order-lg-3 order-xl-2">
-                <div class="card border mb-g">
-                    <div class="card-body pl-4 pt-4 pr-4 pb-0">
-                        <div class="d-flex flex-column">
-                        <div class="border-0 flex-1 position-relative shadow-top">
-                            <form action="{{ url('/community-post') }}" method="post">
-                                @csrf
-                                <label class="form-label" for="example-textarea">Create Post</label>
-                                <div class="form-group">
-                                    <select class="form-control" id="example-select" name="type" required>
-                                        <option>Select Post Type</option>
-                                        <option>Programming</option>
-                                        <option>Education</option>
-                                        <option>Social Awareness </option>
-                                        <option>Study in Abroad</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <textarea class="form-control" id="example-textarea" rows="5" name="status" required></textarea>
-                                </div>
-
-                                <div class="height-8 d-flex flex-row align-items-center flex-wrap flex-shrink-0">
-                                    <button type="submit" class="btn btn-info shadow-0 ml-auto">Post</button>
-                                </div>
-                            </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <!-- post comment -->
                 <div class="card mb-g">
 
@@ -82,7 +54,31 @@
                           </form>
 
                         @endif
-                        </div>    
+                        </div>
+
+                        <div id="disqus_thread"></div>
+                        <script>
+
+                        /**
+                        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                        /*
+                        var disqus_config = function () {
+                        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                        };
+                        */
+                        (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://disquscomment-4.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                        })();
+                        </script>
+                        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                                    
+
+
                     </div>
                     <hr>
                     @endforeach

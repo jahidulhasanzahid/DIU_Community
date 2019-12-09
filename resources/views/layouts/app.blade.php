@@ -102,6 +102,6 @@
             });
 
         </script>
-
+        <script id="dsq-count-scr" src="//disquscomment-4.disqus.com/count.js" async></script>
 </body>
 </html>
