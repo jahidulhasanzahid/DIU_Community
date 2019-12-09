@@ -15,11 +15,14 @@
                 <div class="card mb-g rounded-top">
                     <div class="row no-gutters row-grid">
                         <div class="col-12">
+                            
                             <div class="d-flex flex-column align-items-center justify-content-center p-4">
-                                <img src="{{asset('frontend/img/demo/avatars/avatar-admin-lg.png')}}" class="rounded-circle shadow-2 img-thumbnail" alt="">
+                                @foreach($info as $singleData)
+                                
                                 <h5 class="mb-0 fw-700 text-center mt-3">
-                                   {{Auth::user()->name}}
-                                   @foreach($info as $singleData)
+                                    <img src="{!! asset('frontend/user/'.$singleData->image) !!}" class="rounded-circle shadow-2 img-thumbnail" alt="" style="width: 120px; height: 100px;">
+                                  
+                                    <p class="text-muted mb-0"> {{Auth::user()->name}}</p>
                                     <small class="text-muted mb-0">Dhaka, Bangladesh</small>
                                     <small>Daffodil International University, {{$singleData->department}}</small>
                                     <b> Blood Group: {{ $singleData->blood }} "{{ $singleData->bloodStatus }}"</b> <br>

@@ -73,6 +73,15 @@ class profileController extends Controller
         $studentinformation->mobile = $request->mobile;
         $studentinformation->blood = $request->blood;        
 
+        //insert images also
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $img = time() . '.'. $image->getClientOriginalExtension();
+            $location = public_path('frontend/user/' .$img);
+            Image::make($image)->save($location);
+            $studentinformation->image = $img;
+        }
+
         $studentinformation->save();
     }
         session()->flash('success', 'Your Profile Update successfully !!');

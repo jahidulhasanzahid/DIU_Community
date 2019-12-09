@@ -37,9 +37,6 @@
                                     </select>
                                 </div>
 
-                                <div class="form-group">
-                                    <input class="form-control" type="file" name="image">
-                                </div>
 
                                 <div class="form-group">
                                     <textarea class="form-control" id="example-textarea" rows="5" name="description" required>{{ $editevent->description }}</textarea>

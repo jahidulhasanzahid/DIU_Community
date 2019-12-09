@@ -7,7 +7,8 @@ use Auth;
 use DB;
 use App\event;
 use App\User;
-
+use Image;
+use File;
 class eventController extends Controller
 {	
 	public function __construct()
@@ -36,6 +37,15 @@ class eventController extends Controller
     $event->eventType = $request->eventType;
     $event->description = $request->description;
     
+    //insert images also
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $img = time() . '.'. $image->getClientOriginalExtension();
+            $location = public_path('frontend/event/' .$img);
+            Image::make($image)->save($location);
+            $event->image = $img;
+        }
+
     $event->save();
 
     session()->flash('success', 'A New Event Create Successfully !!');
@@ -78,6 +88,8 @@ class eventController extends Controller
           $update->time = $request->time;
           $update->eventType = $request->eventType;
           $update->description = $request->description;
+
+
           $update->save();
 
           session()->flash('success', 'Event Status has updated successfully !!');

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2019 at 07:18 PM
+-- Generation Time: Dec 09, 2019 at 09:39 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -103,6 +103,7 @@ CREATE TABLE `events` (
   `time` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `eventType` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` text COLLATE utf8mb4_unicode_ci,
+  `image` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -111,8 +112,10 @@ CREATE TABLE `events` (
 -- Dumping data for table `events`
 --
 
-INSERT INTO `events` (`id`, `userID`, `time`, `eventType`, `description`, `created_at`, `updated_at`) VALUES
-(4, 2, '2019-12-10', 'Programming', 'Test', '2019-12-04 13:44:40', '2019-12-04 13:44:40');
+INSERT INTO `events` (`id`, `userID`, `time`, `eventType`, `description`, `image`, `created_at`, `updated_at`) VALUES
+(4, 2, '2019-12-10', 'Programming', 'Test', NULL, '2019-12-04 13:44:40', '2019-12-04 13:44:40'),
+(5, 1, '2019-12-14', 'Programming', 'yyy', NULL, '2019-12-09 14:11:59', '2019-12-09 14:11:59'),
+(6, 1, '2019-12-19', 'Machine Learning', 'test.', '1575922483.jpg', '2019-12-09 14:14:43', '2019-12-09 14:14:43');
 
 -- --------------------------------------------------------
 
@@ -203,8 +206,8 @@ CREATE TABLE `studentinformations` (
 --
 
 INSERT INTO `studentinformations` (`id`, `userID`, `type`, `SRid`, `department`, `batch`, `blood`, `dob`, `mobile`, `image`, `bloodStatus`, `currentJob`, `created_at`, `updated_at`) VALUES
-(7, 1, 'teacher', '1555', 'DEPARTMENT OF ENGLISH', '11', 'O-', '2019-11-18', 1630765770, NULL, 'Available', 'Student', '2019-11-29 12:12:52', '2019-11-29 12:12:52'),
-(8, 2, 'student', '456', 'DEPARTMENT OF PHARMACY', '456', 'B-', '2019-11-27', 111111, NULL, 'Available', 'Student', '2019-11-30 11:11:22', '2019-11-30 11:11:22');
+(8, 2, 'student', '456', 'DEPARTMENT OF PHARMACY', '456', 'B-', '2019-11-27', 111111, NULL, 'Available', 'Student', '2019-11-30 11:11:22', '2019-11-30 11:11:22'),
+(9, 1, 'teacher', '1555', 'DEPARTMENT OF ENGLISH', '11', 'O-', '2019-11-18', 1630765770, '1575920607.jpg', 'Available', 'Student', '2019-12-09 13:43:28', '2019-12-09 13:43:28');
 
 -- --------------------------------------------------------
 
@@ -305,25 +308,25 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `bloods`
 --
 ALTER TABLE `bloods`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `communities`
 --
 ALTER TABLE `communities`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -335,13 +338,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `studentinformations`
 --
 ALTER TABLE `studentinformations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

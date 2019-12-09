@@ -77,6 +77,10 @@
                                 3 hours
                             </span>
                         </div>
+                        
+                        <div class="pb-3 pt-2 border-top-0 border-left-0 border-right-0 text-muted">
+                           <img src="{!! asset('frontend/event/'.$allComPost->image) !!}" class="card-img-top" style="text-align: center; width: 50%;">
+                        </div>
                         <div class="pb-3 pt-2 border-top-0 border-left-0 border-right-0 text-muted">
                             {{ $allComPost->description }}
                         </div>
