@@ -73,6 +73,18 @@
                                     <span class="nav-link-text">Messages</span>
                                 </a>
                             </li>
+                            <li class="active open"> 
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                    </a>
+                            </li>
                            <!--  <li class="nav-title">Tools & Components</li> -->
                         </ul>
                         <div class="filter-message js-filter-message bg-success-600"></div>

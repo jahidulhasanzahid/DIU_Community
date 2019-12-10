@@ -15,5 +15,6 @@ class messageController extends Controller
     
 	public function message(){
 		return view('message');
-	}    
+	}
+	
 }
